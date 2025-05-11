@@ -1,0 +1,35 @@
+{
+  "name": "savg",
+  "version": "0.1.1",
+  "type": "module",
+  "main": "dist/savg.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/herrstrietzel/savg.git"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c --watch"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "rollup": "^3.29.5",
+    "rollup-plugin-concat": "^1.0.4"
+  },
+  "keywords": [
+    "svg",
+    "svg-to-image",
+    "self-contained-svg",
+    "svg-download"
+  ],
+  "author": "herrstrietzel",
+  "license": "MIT",
+  "description": "Get self-contained SVGs or bitmaps from SVG",
+  "dependencies": {
+    "terser": "^5.39.0"
+  },
+  "bugs": {
+    "url": "https://github.com/herrstrietzel/savg/issues"
+  },
+  "homepage": "https://github.com/herrstrietzel/savg#readme"
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Git: svg to bitmap</title>
+    <link rel="stylesheet" href="style2.css">
+
+
+
+    <!-- 
+        <link rel="stylesheet" href="savevg.css">
+    -->
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+
+    <style>
+        canvas,
+        img {
+            max-width: 100%
+        }
+    </style>
+
+    <!-- 
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap">
+  -->
+
+
+</head>
+
+<body style="background:#fee">
+    <!-- partial:index.partial.html -->
+
+    <!-- 
+            /* @import url('https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap');*/
+
+      @import url('https://fonts.googleapis.com/css2?family=Lobster:wght@400&display=swap');
+
+    -->
+
+
+
+    <svg id="svg" viewBox="0 0 400 100" xmlns:xlink="http://www.w3.org/1999/xlink" data-style="filter:url('#toLinearRGB')">
+
+
+        <style>
+            @import url('https://cdn.jsdelivr.net/npm/font-awesome@4.6.3/css/font-awesome.css');
+
+            .openSans {
+                font-family: 'Open Sans'
+            }
+
+            .archivo {
+                font-family: Archivo
+            }
+
+            .noto-serif {
+                font-family: 'Noto Serif'
+            }
+
+            .wdt-50 {
+                font-stretch: 50%;
+            }
+
+            .garamond {
+                font-family: "Cormorant Garamond";
+            }
+
+            .fontAwesome {
+                font-family: 'FontAwesome';
+            }
+        </style>
+        <text x="10" y="25" class="archivo">
+            <tspan style="font-weight:1000; font-stretch:50%">Archivo</tspan>
+            <tspan style="font-weight:100;font-style:italic; font-stretch:normal">Sans</tspan>
+        </text>
+
+        <text x="10" y="40" class="noto-serif" style="font-weight:50;font-style:normal; font-stretch:50%">
+            Noto
+            <tspan x="10" dy="1em" style="font-weight:700;font-style:italic; font-stretch:normal">
+                Serif</tspan>
+        </text>
+        <text x="10" y="72" class="fontAwesome fa"> <tspan style="font-family:sans-serif; font-size:10px">Fontawesome
+            </tspan></text>
+
+        <image x="100" width="50" height="100" href="https://picsum.photos/id/200/200/400" />
+        <image x="150" width="50" height="100" xlink:href="https://picsum.photos/id/202/200/400" />
+
+
+        <use href="sprite.svg#home" x="250" width="75" stroke="#ccc" fill="none" />
+        <use href="#home" x="250" y="-25" width="25" />
+        <use xlink:href="sprite.svg#home" x="250" width="25" stroke="#777" fill="none" />
+
+
+        <rect x="200" y="0" width="25" height="25" fill="url(#gradient)" />
+
+        <rect x="200" y="25" width="25" height="25" fill="url(#pattern)" />
+        <rect x="225" y="25" width="25" height="25" fill="url(#pattern2)" />
+
+        <use href="#masked" x="200" y="50" width="25" height="25" />
+
+        <use href="#clipped" x="200" y="75" width="25" height="25" />
+
+        <foreignObject x="300" y="0" width="100" height="100">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                <img src="https://picsum.photos/id/220/400/100?grayscale" alt="" width="100" height="25">
+
+                <!-- 
+            <p class="brd brd-rad pdd-1rem" style="margin:0; font-family:'Roboto Flex'; font-size: 10px; font-variation-settings: &quot;slnt&quot; -10, &quot;wdth&quot; 55, &quot;wght&quot; 580, &quot;GRAD&quot; 86, &quot;XOPQ&quot; 135, &quot;XTRA&quot; 431, &quot;YOPQ&quot; 111, &quot;YTAS&quot; 649, &quot;YTFI&quot; 713, &quot;YTDE&quot; -241, &quot;opsz&quot; 79;" id="previewVF" contenteditable="" spellcheck="false">Hamburgefonsle 01234</p>
+        -->
+
+                <p style="font-size:10px; font-family:'Cormorant Garamond'">
+                    One morning, when <em>Gregor Samsa</em> woke from troubled dreams, he found himself transformed in
+                    his bed into a horrible vermin. He lay on his armour-like back, and if he lifted his head a little
+                    he could see his brown belly, slightly domed and divided by arches into stiff sections.
+                </p>
+
+
+            </div>
+        </foreignObject>
+
+
+
+    </svg>
+
+
+
+    <!-- 
+  
+-->
+
+    <h3>Img</h3>
+    <img id="canvasImg" src="" alt="">
+
+
+    <h3>SVG selfcontained</h3>
+    <img id="svgSelfContained" src="" alt="">
+
+
+
+
+    <!-- def references -->
+
+    <svg style="position:absolute;width:0;height:0; overflow:hidden;">
+
+
+        <filter id="toLinearRGB" filterUnits="objectBoundingBox" x="0" y="0" width="1"
+        height="1">
+            <feComponentTransfer color-interpolation-filters="sRGB">
+               <feFuncR type="gamma" amplitude="1" exponent="0.454545454545" offset="0"/>
+               <feFuncG type="gamma" amplitude="1" exponent="0.454545454545" offset="0"/>
+               <feFuncB type="gamma" amplitude="1" exponent="0.454545454545" offset="0"/>
+               <feFuncA type="gamma" amplitude="1" exponent="0.454545454545" offset="0"/>
+            </feComponentTransfer>
+          </filter>
+      
+
+        <radialGradient id="gradient">
+            <stop offset="0%" stop-color="#000" />
+            <stop offset="100%" stop-color="transparent" />
+        </radialGradient>
+
+
+        <mask id="mask" width="100" height="100">
+            <rect x="0" y="0" width="100" height="100" fill="#222" />
+            <circle cx="50" cy="50" r="25" fill="#000" />
+        </mask>
+
+        <clipPath id="clip" width="100" height="100">
+            <circle cx="50" cy="50" r="25" fill="#000" />
+        </clipPath>
+
+
+
+        <symbol id="masked" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="#000" mask="url(#mask)" />
+        </symbol>
+
+        <symbol id="clipped" viewBox="0 0 100 100">
+            <rect x="0" y="0" width="100" height="100" fill="#000" clip-path="url(#clip)" />
+        </symbol>
+
+
+
+        <pattern id="pattern" viewBox="0,0,10,10" width="10%" height="10%">
+            <polygon points="0,0 2,5 0,10 5,8 10,10 8,5 10,0 5,2" />
+        </pattern>
+
+
+        <pattern id="pattern2" href="#pattern" fill="#f00" viewBox="0 0 25 25" width="10%" height="10%">
+        </pattern>
+
+
+
+        <symbol id="home" viewBox="0 0 34 48">
+            <path d="M33.16,28.12h-5.2v13h-3.44v-16.72l-7.72-8.72l-7.72,8.72v16.72h-3.44v-13h-5.24l16.4-17.4Z" />
+        </symbol>
+    </svg>
+
+
+
+
+    <script>
+
+
+    </script>
+
+
+    <!-- 
+  <script src="
+  https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js
+  "></script>
+  <script src="https://cdn.jsdelivr.net/gh/Kaiido/SVG2Bitmap@master/SVG2Bitmap.min.js"></script>
+
+  
+-->
+
+    <script src="savevg_icons.js"></script>
+    <script src="font_helpers.js"></script>
+    <script src="image_helpers2.js"></script>
+    <script src="stylesheet_helpers2.js"></script>
+    <script src="anylyzeFontRequirements5.js"></script>
+    <script src="reference_helpers.js"></script>
+    <script src="svg2bmp7.js"></script>
+    <script>
+
+
+
+        let svgEl = document.getElementById("svg");
+        let svgStr = new XMLSerializer().serializeToString(svg);
+        //console.log(svgStr)
+
+        let svgInp = svgEl;
+
+        
+        (async () => {
+            let options = {
+                addGlobalStyles: true,
+                format: 'webp',
+                scaleImages: false,
+                quality: 0.8,
+                addToolbar:true
+            }
+
+            let { bmp, svg } = await svg2bitmap(svgInp, options)
+
+
+            // direct rendering
+            /*
+            options = {
+                addGlobalStyles: true,
+                format: 'svg_self',
+                formatSVG:'jpeg',
+                scaleImages: true,
+                quality: 0.1,
+                addToolbar:false
+            };
+
+            ({ bmp, svg } = await svg2bitmap(svgInp, options));
+
+            //canvasImg.src = bmp;
+            svgSelfContained.src = svg;
+
+            //let bmp = await svg2bitmap(svgStr);
+            */
+
+        })();
+
+
+
+    </script>
+
+
+</body>
+
+</html>
