@@ -22,5 +22,3 @@ let svgInp = svgEl;
     // self contained img
     let savg2 = new savg(imgSelfContained);
 })();
-
-
