@@ -1,12 +1,10 @@
-import { assetCache } from './savg_constants.js';
-import { icons } from './savg_icons.js';
-import { getToolbar } from './savg_toolbar.js';
-import { svg2bitmap } from './savg_convert.js';
+import { assetCache } from './savgy_constants.js';
+import { icons } from './savgy_icons.js';
+import { getToolbar } from './savgy_toolbar.js';
+import { svg2bitmap } from './savgy_convert.js';
 
 
-
-
-function savg_core(
+function savgy_core(
     input = '',
     {
         addGlobalStyles = true,
@@ -77,10 +75,10 @@ function savg_core(
 
 
 
-export { savg_core as savg };
+export { savgy_core as savgy };
 
 
 // Self-executing function for IIFE
 if (typeof window !== 'undefined') {
-    window.savg = savg_core;
+    window.savgy = savgy_core;
 }

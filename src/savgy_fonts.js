@@ -1,4 +1,4 @@
-import {dataURLToBlob, blobToBase64} from './savg_blob.js';
+import {dataURLToBlob, blobToBase64} from './savgy_blob.js';
 
 /**
  * convert all external font references to

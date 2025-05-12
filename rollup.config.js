@@ -1,6 +1,6 @@
 
 import terser from '@rollup/plugin-terser';
-const libName = 'savg';
+const libName = 'savgy';
 
 export default [
     // IIFE Build

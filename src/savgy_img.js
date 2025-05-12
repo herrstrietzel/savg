@@ -1,4 +1,4 @@
-import {dataURLToBlob, blobToBase64} from './savg_blob.js';
+import {dataURLToBlob, blobToBase64} from './savgy_blob.js';
 
 
 export async function optimizeSVGImgs(svgClone, assetCache = {}, addGlobalStyles = true, width = null, height = null, format = 'original', quality = 1, scaleImages = true, bgColor='transparent') {

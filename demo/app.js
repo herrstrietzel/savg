@@ -15,10 +15,10 @@ let svgInp = svgEl;
 
 
     /*
-    let savgEls = new savg(svgEl);
+    let savgEls = new savgy(svgEl);
     console.log('savg', savg);
     */
 
     // self contained img
-    let savg2 = new savg(imgSelfContained);
+    let savg2 = new savgy(imgSelfContained);
 })();

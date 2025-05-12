@@ -1,11 +1,11 @@
-import { assetCache } from './savg_constants.js';
-import { icons } from './savg_icons.js';
-import { getToolbar } from './savg_toolbar.js';
-import { dataURLToBlob, blobToBase64 } from './savg_blob.js';
-import { inlineUseRefs, inlineRefs } from './savg_refs.js';
-import { svg2Canvas2DataUrl, inlineImages, optimizeSVGImgs } from './savg_img.js';
-import { inlineGlobalStyles, getAllImportRules, importRulesToLink } from './savg_css.js'
-import { analizeSVGText, externalFontsToBase64 } from './savg_fonts.js';
+import { assetCache } from './savgy_constants.js';
+import { icons } from './savgy_icons.js';
+import { getToolbar } from './savgy_toolbar.js';
+import { dataURLToBlob, blobToBase64 } from './savgy_blob.js';
+import { inlineUseRefs, inlineRefs } from './savgy_refs.js';
+import { svg2Canvas2DataUrl, inlineImages, optimizeSVGImgs } from './savgy_img.js';
+import { inlineGlobalStyles, getAllImportRules, importRulesToLink } from './savgy_css.js'
+import { analizeSVGText, externalFontsToBase64 } from './savgy_fonts.js';
 
 
 
@@ -39,7 +39,7 @@ export async function svg2bitmap(svg, {
     let imgEl = isImg ? svg : svg;
 
     if(isImg){
-        //imgEl.classList.add('savg__hidden');
+        //imgEl.classList.add('savgy__hidden');
         let res = await fetch(svg.src);
         if(res.ok){
             svg = await res.text() ;
@@ -64,14 +64,14 @@ export async function svg2bitmap(svg, {
 
 
 
-    let savgWrap = document.createElement('div');
+    let savgyWrap = document.createElement('div');
 
     // clone and append
     let svgClone = svg.cloneNode(true);
     //console.log('svgClone', svgClone);
 
     //svgClone.id='';
-    svgClone.classList.add('savg_clone', 'savg__hidden');
+    svgClone.classList.add('savgy_clone', 'savgy__hidden');
     let previewImg;
 
 
@@ -82,29 +82,29 @@ export async function svg2bitmap(svg, {
 
 
         // add toolbar stylesheet
-        await addStyles('savg', true)
+        await addStyles('savgy', true)
 
 
-        savgWrap.classList.add('savg__wrap');
-        //document.body.insertBefore(savgWrap, svg);
-        document.body.insertBefore(savgWrap, imgEl);
+        savgyWrap.classList.add('savgy__wrap');
+        //document.body.insertBefore(savgyWrap, svg);
+        document.body.insertBefore(savgyWrap, imgEl);
 
         // preview img
         previewImg = document.createElement('img')
-        previewImg.classList.add('savg__preview', 'savg__preview--hidden');
+        previewImg.classList.add('savgy__preview', 'savgy__preview--hidden');
 
 
         // toolbar
         ({ toolbar, inpW, inpH, inpQ, inpF, btnCopy, btnSave, linkFile, inpFSVG, inpPreview, inputToggle, inputIntrinsic, inputCrop, selectSVGIMGFormat, pFilesize, inputFlatten, inputScaleImages } = getToolbar(icons));
 
         //console.log(toolbar);
-        //savgWrap.append(svg, svgClone, previewImg, toolbar);
-        savgWrap.append(imgEl, svgClone, previewImg, toolbar);
+        //savgyWrap.append(svg, svgClone, previewImg, toolbar);
+        savgyWrap.append(imgEl, svgClone, previewImg, toolbar);
 
     } else {
-        savgWrap.style = 'position:relative; height:0px; overflow:hidden; opacity:0';
-        savgWrap.append(svgClone);
-        document.body.append(savgWrap)
+        savgyWrap.style = 'position:relative; height:0px; overflow:hidden; opacity:0';
+        savgyWrap.append(svgClone);
+        document.body.append(savgyWrap)
     }
 
     /**
@@ -171,7 +171,7 @@ export async function svg2bitmap(svg, {
         inputToggle.addEventListener('click', async (e) => {
 
             // set open class
-            toolbar.classList.toggle('savg__toolbar--open');
+            toolbar.classList.toggle('savgy__toolbar--open');
 
             // get selfcontained svg on menu open
             //if (!hasSelfContainedSVG) svgClone = await getSelfcontainedSVG(svgClone, assetCache, addGlobalStyles);
@@ -253,7 +253,7 @@ export async function svg2bitmap(svg, {
 
                 // Toggle SVG format UI
                 selectSVGIMGFormat.classList.toggle(
-                    'savg__toolbar__select--format--img--active',
+                    'savgy__toolbar__select--format--img--active',
                     format === 'svg_self'
                 );
 
@@ -276,7 +276,7 @@ export async function svg2bitmap(svg, {
                 // Update preview if needed
                 if (showPreview) {
                     if(isImg) imgEl.style.visibility = 'hidden';
-                    previewImg.classList.replace('savg__preview--hidden', 'savg__preview--visible');
+                    previewImg.classList.replace('savgy__preview--hidden', 'savgy__preview--visible');
 
                     ({ dataUrl, dataUrlSVG } = await updateOutput(
                         svg, svgClone, assetCache, addGlobalStyles,
@@ -292,7 +292,7 @@ export async function svg2bitmap(svg, {
                     }
                 } else {
                     if(isImg) imgEl.style.visibility = 'visible';
-                    previewImg.classList.replace('savg__preview--visible', 'savg__preview--hidden');
+                    previewImg.classList.replace('savgy__preview--visible', 'savgy__preview--hidden');
                 }
             });
         });
@@ -303,7 +303,7 @@ export async function svg2bitmap(svg, {
         btnCopy.addEventListener('click', async (e) => {
 
             let copyText;
-            btnCopy.classList.add('savg--copying');
+            btnCopy.classList.add('savgy--copying');
 
             if (format === 'svg') {
                 copyText = new XMLSerializer().serializeToString(svg);
@@ -321,7 +321,7 @@ export async function svg2bitmap(svg, {
             }
 
             navigator.clipboard.writeText(copyText)
-            btnCopy.classList.remove('savg--copying');
+            btnCopy.classList.remove('savgy--copying');
 
         })
 
@@ -330,7 +330,7 @@ export async function svg2bitmap(svg, {
          */
         btnSave.addEventListener('click', async (e) => {
 
-            btnSave.classList.replace('savg__button--ready', 'savg__button--loading');
+            btnSave.classList.replace('savgy__button--ready', 'savgy__button--loading');
 
             // generate dataURL if not already done due to active preview
             if (!showPreview) {
@@ -339,7 +339,7 @@ export async function svg2bitmap(svg, {
 
 
             // get filename from svg id
-            let fileName = svgClone.id ? svgClone.id : 'savg';
+            let fileName = svgClone.id ? svgClone.id : 'savgy';
             let ext = format.replace('image/', '').replace('jpeg', 'jpg').replace('svg_self', 'svg');
 
 
@@ -348,7 +348,7 @@ export async function svg2bitmap(svg, {
             linkFile.href = dataUrl;
             linkFile.click();
 
-            btnSave.classList.replace('savg__button--loading', 'savg__button--ready');
+            btnSave.classList.replace('savgy__button--loading', 'savgy__button--ready');
 
         })
 
@@ -365,17 +365,17 @@ export async function svg2bitmap(svg, {
             console.log('toolbarTop', toolbarTop);
 
             if (toolbarTop < 0) {
-                toolbar.classList.add('savg__toolbar--bottom')
+                toolbar.classList.add('savgy__toolbar--bottom')
 
             } else {
-                toolbar.classList.remove('savg__toolbar--bottom')
+                toolbar.classList.remove('savgy__toolbar--bottom')
             }
         });
 
         window.addEventListener('DOMContentLoaded', e => {
             toolbarTop = toolbar.getBoundingClientRect().top;
             console.log('toolbarTop', toolbar, toolbarTop, toolbar.getBoundingClientRect());
-            if (toolbarTop < 0) toolbar.classList.add('savg__toolbar--bottom')
+            if (toolbarTop < 0) toolbar.classList.add('savgy__toolbar--bottom')
         })
 
 

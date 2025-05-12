@@ -1,4 +1,4 @@
-import {analizeSVGText, checkAvailableFonts, updateFontInfo, checkFontCoverage, externalFontsToBase64   } from './savg_fonts.js';
+import {analizeSVGText, checkAvailableFonts, updateFontInfo, checkFontCoverage, externalFontsToBase64   } from './savgy_fonts.js';
 
 /**
  * inline global stylesheets for 

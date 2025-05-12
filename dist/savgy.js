@@ -34,76 +34,76 @@
     function getToolbar(icons) {
 
         let toolbarMarkup =
-            `<div class="savg__toolbar">
-    <div class="savg__toolbar__inner">
-        <div class="savg__toolbar__inputwrap  --savg__toolbar__grd">
-            <div class="savg__toolbar__row savg__toolbar__row--2">
-                <div class="savg__toolbar__col savg__grd-label">
-                    <label class="savg__toolbar__label savg__toolbar__label--w">W:</label>   
-                    <input class="savg__toolbar__input savg__toolbar__input--w" type="number" value="640">
+            `<div class="savgy__toolbar">
+    <div class="savgy__toolbar__inner">
+        <div class="savgy__toolbar__inputwrap  --savgy__toolbar__grd">
+            <div class="savgy__toolbar__row savgy__toolbar__row--2">
+                <div class="savgy__toolbar__col savgy__grd-label">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--w">W:</label>   
+                    <input class="savgy__toolbar__input savgy__toolbar__input--w" type="number" value="640">
                 </div>
 
-                <div class="savg__toolbar__col savg__grd-label">
-                    <label class="savg__toolbar__label savg__toolbar__label--h">H:</label>   
-                    <input class="savg__toolbar__input savg__toolbar__input--h" type="number" value="480">
+                <div class="savgy__toolbar__col savgy__grd-label">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--h">H:</label>   
+                    <input class="savgy__toolbar__input savgy__toolbar__input--h" type="number" value="480">
                 </div>
             </div>
 
 
-            <div class="savg__toolbar__row">
-                <div class="savg__toolbar__col savg__grd-label">
-                    <label class="savg__toolbar__label">Quality:</label>  
-                    <input class="savg__toolbar__input savg__toolbar__input--quality" type="number" value="0.9" min="0.1" max="1" step="0.1">
+            <div class="savgy__toolbar__row">
+                <div class="savgy__toolbar__col savgy__grd-label">
+                    <label class="savgy__toolbar__label">Quality:</label>  
+                    <input class="savgy__toolbar__input savgy__toolbar__input--quality" type="number" value="0.9" min="0.1" max="1" step="0.1">
                 </div>
             </div>
 
 
         </div>
-        <div class="savg__toolbar__inputwrap">
-            <div class="savg__toolbar__row">
-                <div class="savg__toolbar__col">
-                    <select class="savg__toolbar__select savg__toolbar__select--format">
-                        <option class="savg__toolbar__option" value="png">PNG </option>
-                        <option class="savg__toolbar__option" value="webp">WebP </option>
-                        <option class="savg__toolbar__option" value="jpg">Jpeg </option>
-                        <option class="savg__toolbar__option" value="svg">SVG (original)</option>
-                        <option class="savg__toolbar__option" value="svg_self">SVG (self-contained)</option>
+        <div class="savgy__toolbar__inputwrap">
+            <div class="savgy__toolbar__row">
+                <div class="savgy__toolbar__col">
+                    <select class="savgy__toolbar__select savgy__toolbar__select--format">
+                        <option class="savgy__toolbar__option" value="png">PNG </option>
+                        <option class="savgy__toolbar__option" value="webp">WebP </option>
+                        <option class="savgy__toolbar__option" value="jpg">Jpeg </option>
+                        <option class="savgy__toolbar__option" value="svg">SVG (original)</option>
+                        <option class="savgy__toolbar__option" value="svg_self">SVG (self-contained)</option>
                     </select>
                 </div>
             </div>
 
-            <div class="savg__toolbar__row">
-                <div class="savg__toolbar__col">
-                    <select class="savg__toolbar__select savg__toolbar__select--format--img">
-                        <option class="savg__toolbar__option" value="original">SVG img format </option>
-                        <option class="savg__toolbar__option" value="png">PNG </option>
-                        <option class="savg__toolbar__option" value="webp">WebP </option>
-                        <option class="savg__toolbar__option" value="jpg">Jpeg </option>
+            <div class="savgy__toolbar__row">
+                <div class="savgy__toolbar__col">
+                    <select class="savgy__toolbar__select savgy__toolbar__select--format--img">
+                        <option class="savgy__toolbar__option" value="original">SVG img format </option>
+                        <option class="savgy__toolbar__option" value="png">PNG </option>
+                        <option class="savgy__toolbar__option" value="webp">WebP </option>
+                        <option class="savgy__toolbar__option" value="jpg">Jpeg </option>
                     </select>
                 </div>
             </div>
 
 
-            <div class="savg__toolbar__row">
-                <div class="savg__toolbar__col">
-                    <label class="savg__toolbar__label savg__toolbar__label--inline">
-                        <input type="checkbox" value="1" class="savg__toolbar__check savg__toolbar__check--preview">
+            <div class="savgy__toolbar__row">
+                <div class="savgy__toolbar__col">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--inline">
+                        <input type="checkbox" value="1" class="savgy__toolbar__check savgy__toolbar__check--preview">
                         Show Preview
                     </label>
-                    <label class="savg__toolbar__label savg__toolbar__label--inline">
-                        <input type="checkbox" value="1" class="savg__toolbar__check savg__toolbar__check--intrinsic">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--inline">
+                        <input type="checkbox" value="1" class="savgy__toolbar__check savgy__toolbar__check--intrinsic">
                         Intrinsic width/height
                     </label>
-                    <label class="savg__toolbar__label savg__toolbar__label--inline">
-                        <input type="checkbox" value="1" class="savg__toolbar__check savg__toolbar__check--crop">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--inline">
+                        <input type="checkbox" value="1" class="savgy__toolbar__check savgy__toolbar__check--crop">
                         Crop to content
                     </label>
-                    <label class="savg__toolbar__label savg__toolbar__label--inline">
-                        <input type="checkbox" value="1" class="savg__toolbar__check savg__toolbar__check--flatten">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--inline">
+                        <input type="checkbox" value="1" class="savgy__toolbar__check savgy__toolbar__check--flatten">
                         Flatten transparency
                     </label>
-                    <label class="savg__toolbar__label savg__toolbar__label--inline">
-                        <input type="checkbox" value="1" class="savg__toolbar__check savg__toolbar__check--scaleImg">
+                    <label class="savgy__toolbar__label savgy__toolbar__label--inline">
+                        <input type="checkbox" value="1" class="savgy__toolbar__check savgy__toolbar__check--scaleImg">
                         Scale SVG images
                     </label>
 
@@ -114,13 +114,13 @@
 
         </div>
 
-        <div class="savg__toolbar__row savg__toolbar__row--2">
-            <div class="savg__toolbar__col">
-                <button type="button" class="savg__button savg__toolbar__button savg__toolbar__button--copy"><span class="savg__toolbar__button--save--download icn-svg savg__icon">${icons.copy} </span> Copy</button>
+        <div class="savgy__toolbar__row savgy__toolbar__row--2">
+            <div class="savgy__toolbar__col">
+                <button type="button" class="savgy__button savgy__toolbar__button savgy__toolbar__button--copy"><span class="savgy__toolbar__button--save--download icn-svg savgy__icon">${icons.copy} </span> Copy</button>
             </div>
-            <div class="savg__toolbar__col">
-                <button type="button" class="savg__button--ready    savg__button  savg__toolbar__button savg__toolbar__button--save"><span class="savg__toolbar__button--save--download icn-svg savg__icon savg__icon--download">${icons.download} </span> <span class="savg__toolbar__button--save--download icn-svg savg__icon savg__icon--spinner">${icons.spinner} </span> Save file</button>
-                <a class="savg__toolbar__a savg__toolbar__button--a savg__hidden" href="" download=""></a>
+            <div class="savgy__toolbar__col">
+                <button type="button" class="savgy__button--ready    savgy__button  savgy__toolbar__button savgy__toolbar__button--save"><span class="savgy__toolbar__button--save--download icn-svg savgy__icon savgy__icon--download">${icons.download} </span> <span class="savgy__toolbar__button--save--download icn-svg savgy__icon savgy__icon--spinner">${icons.spinner} </span> Save file</button>
+                <a class="savgy__toolbar__a savgy__toolbar__button--a savgy__hidden" href="" download=""></a>
             </div>
         </div>
         <div class="saveg__filesize__wrp">
@@ -130,11 +130,11 @@
 
     </div>
 
-    <div class="savg__toolbar__toggle">
-        <label class="savg__toolbar__toggle__label">
-            <span class="savg__toolbar__toggle__icon savg__toolbar__toggle__icon--download  savg__icon savg__icon--download">${icons.download}</span>
-            <span class=" savg__toolbar__toggle__icon savg__toolbar__toggle__icon--close savg__icon savg__icon--close">${icons.close}</span>
-            <input class="savg__toolbar__toggle__input savg__hidden" type="checkbox" value="1">
+    <div class="savgy__toolbar__toggle">
+        <label class="savgy__toolbar__toggle__label">
+            <span class="savgy__toolbar__toggle__icon savgy__toolbar__toggle__icon--download  savgy__icon savgy__icon--download">${icons.download}</span>
+            <span class=" savgy__toolbar__toggle__icon savgy__toolbar__toggle__icon--close savgy__icon savgy__icon--close">${icons.close}</span>
+            <input class="savgy__toolbar__toggle__input savgy__hidden" type="checkbox" value="1">
         </label>
     </div>
 </div>
@@ -142,25 +142,25 @@
 
         let toolbar = new DOMParser().parseFromString(toolbarMarkup, 'text/html').querySelector('div');
 
-        let inpW = toolbar.querySelector('.savg__toolbar__input--w');
-        let inpH = toolbar.querySelector('.savg__toolbar__input--h');
-        let inpQ = toolbar.querySelector('.savg__toolbar__input--quality');
-        let inpF = toolbar.querySelector('.savg__toolbar__select--format');
-        let inpPreview = toolbar.querySelector('.savg__toolbar__check--preview');
+        let inpW = toolbar.querySelector('.savgy__toolbar__input--w');
+        let inpH = toolbar.querySelector('.savgy__toolbar__input--h');
+        let inpQ = toolbar.querySelector('.savgy__toolbar__input--quality');
+        let inpF = toolbar.querySelector('.savgy__toolbar__select--format');
+        let inpPreview = toolbar.querySelector('.savgy__toolbar__check--preview');
         //preferred format for images in SVG
-        let inpFSVG = toolbar.querySelector('.savg__toolbar__select--format--img');
+        let inpFSVG = toolbar.querySelector('.savgy__toolbar__select--format--img');
 
-        let btnCopy = toolbar.querySelector('.savg__toolbar__button--copy');
-        let btnSave = toolbar.querySelector('.savg__toolbar__button--save');
-        let linkFile = toolbar.querySelector('.savg__toolbar__button--a');
-        let inputToggleLabel = toolbar.querySelector('.savg__toolbar__toggle__label');
-        let inputToggle = toolbar.querySelector('.savg__toolbar__toggle__input');
-        let inputIntrinsic = toolbar.querySelector('.savg__toolbar__check--intrinsic');
-        let inputCrop = toolbar.querySelector('.savg__toolbar__check--crop');
-        let inputFlatten = toolbar.querySelector('.savg__toolbar__check--flatten');
-        let inputScaleImages = toolbar.querySelector('.savg__toolbar__check--scaleImg');
+        let btnCopy = toolbar.querySelector('.savgy__toolbar__button--copy');
+        let btnSave = toolbar.querySelector('.savgy__toolbar__button--save');
+        let linkFile = toolbar.querySelector('.savgy__toolbar__button--a');
+        let inputToggleLabel = toolbar.querySelector('.savgy__toolbar__toggle__label');
+        let inputToggle = toolbar.querySelector('.savgy__toolbar__toggle__input');
+        let inputIntrinsic = toolbar.querySelector('.savgy__toolbar__check--intrinsic');
+        let inputCrop = toolbar.querySelector('.savgy__toolbar__check--crop');
+        let inputFlatten = toolbar.querySelector('.savgy__toolbar__check--flatten');
+        let inputScaleImages = toolbar.querySelector('.savgy__toolbar__check--scaleImg');
 
-        let selectSVGIMGFormat = toolbar.querySelector('.savg__toolbar__select--format--img');
+        let selectSVGIMGFormat = toolbar.querySelector('.savgy__toolbar__select--format--img');
         let pFilesize = toolbar.querySelector('.saveg__filesize');
 
 
@@ -1470,7 +1470,7 @@
         let imgEl = isImg ? svg : svg;
 
         if(isImg){
-            //imgEl.classList.add('savg__hidden');
+            //imgEl.classList.add('savgy__hidden');
             let res = await fetch(svg.src);
             if(res.ok){
                 svg = await res.text() ;
@@ -1495,14 +1495,14 @@
 
 
 
-        let savgWrap = document.createElement('div');
+        let savgyWrap = document.createElement('div');
 
         // clone and append
         let svgClone = svg.cloneNode(true);
         //console.log('svgClone', svgClone);
 
         //svgClone.id='';
-        svgClone.classList.add('savg_clone', 'savg__hidden');
+        svgClone.classList.add('savgy_clone', 'savgy__hidden');
         let previewImg;
 
 
@@ -1513,29 +1513,29 @@
 
 
             // add toolbar stylesheet
-            await addStyles('savg', true);
+            await addStyles('savgy', true);
 
 
-            savgWrap.classList.add('savg__wrap');
-            //document.body.insertBefore(savgWrap, svg);
-            document.body.insertBefore(savgWrap, imgEl);
+            savgyWrap.classList.add('savgy__wrap');
+            //document.body.insertBefore(savgyWrap, svg);
+            document.body.insertBefore(savgyWrap, imgEl);
 
             // preview img
             previewImg = document.createElement('img');
-            previewImg.classList.add('savg__preview', 'savg__preview--hidden');
+            previewImg.classList.add('savgy__preview', 'savgy__preview--hidden');
 
 
             // toolbar
             ({ toolbar, inpW, inpH, inpQ, inpF, btnCopy, btnSave, linkFile, inpFSVG, inpPreview, inputToggle, inputIntrinsic, inputCrop, selectSVGIMGFormat, pFilesize, inputFlatten, inputScaleImages } = getToolbar(icons));
 
             //console.log(toolbar);
-            //savgWrap.append(svg, svgClone, previewImg, toolbar);
-            savgWrap.append(imgEl, svgClone, previewImg, toolbar);
+            //savgyWrap.append(svg, svgClone, previewImg, toolbar);
+            savgyWrap.append(imgEl, svgClone, previewImg, toolbar);
 
         } else {
-            savgWrap.style = 'position:relative; height:0px; overflow:hidden; opacity:0';
-            savgWrap.append(svgClone);
-            document.body.append(savgWrap);
+            savgyWrap.style = 'position:relative; height:0px; overflow:hidden; opacity:0';
+            savgyWrap.append(svgClone);
+            document.body.append(savgyWrap);
         }
 
         /**
@@ -1602,7 +1602,7 @@
             inputToggle.addEventListener('click', async (e) => {
 
                 // set open class
-                toolbar.classList.toggle('savg__toolbar--open');
+                toolbar.classList.toggle('savgy__toolbar--open');
 
                 // get selfcontained svg on menu open
                 //if (!hasSelfContainedSVG) svgClone = await getSelfcontainedSVG(svgClone, assetCache, addGlobalStyles);
@@ -1684,7 +1684,7 @@
 
                     // Toggle SVG format UI
                     selectSVGIMGFormat.classList.toggle(
-                        'savg__toolbar__select--format--img--active',
+                        'savgy__toolbar__select--format--img--active',
                         format === 'svg_self'
                     );
 
@@ -1707,7 +1707,7 @@
                     // Update preview if needed
                     if (showPreview) {
                         if(isImg) imgEl.style.visibility = 'hidden';
-                        previewImg.classList.replace('savg__preview--hidden', 'savg__preview--visible');
+                        previewImg.classList.replace('savgy__preview--hidden', 'savgy__preview--visible');
 
                         ({ dataUrl, dataUrlSVG } = await updateOutput(
                             svg, svgClone, assetCache, addGlobalStyles,
@@ -1723,7 +1723,7 @@
                         }
                     } else {
                         if(isImg) imgEl.style.visibility = 'visible';
-                        previewImg.classList.replace('savg__preview--visible', 'savg__preview--hidden');
+                        previewImg.classList.replace('savgy__preview--visible', 'savgy__preview--hidden');
                     }
                 });
             });
@@ -1734,7 +1734,7 @@
             btnCopy.addEventListener('click', async (e) => {
 
                 let copyText;
-                btnCopy.classList.add('savg--copying');
+                btnCopy.classList.add('savgy--copying');
 
                 if (format === 'svg') {
                     copyText = new XMLSerializer().serializeToString(svg);
@@ -1752,7 +1752,7 @@
                 }
 
                 navigator.clipboard.writeText(copyText);
-                btnCopy.classList.remove('savg--copying');
+                btnCopy.classList.remove('savgy--copying');
 
             });
 
@@ -1761,7 +1761,7 @@
              */
             btnSave.addEventListener('click', async (e) => {
 
-                btnSave.classList.replace('savg__button--ready', 'savg__button--loading');
+                btnSave.classList.replace('savgy__button--ready', 'savgy__button--loading');
 
                 // generate dataURL if not already done due to active preview
                 if (!showPreview) {
@@ -1770,7 +1770,7 @@
 
 
                 // get filename from svg id
-                let fileName = svgClone.id ? svgClone.id : 'savg';
+                let fileName = svgClone.id ? svgClone.id : 'savgy';
                 let ext = format.replace('image/', '').replace('jpeg', 'jpg').replace('svg_self', 'svg');
 
 
@@ -1779,7 +1779,7 @@
                 linkFile.href = dataUrl;
                 linkFile.click();
 
-                btnSave.classList.replace('savg__button--loading', 'savg__button--ready');
+                btnSave.classList.replace('savgy__button--loading', 'savgy__button--ready');
 
             });
 
@@ -1796,17 +1796,17 @@
                 console.log('toolbarTop', toolbarTop);
 
                 if (toolbarTop < 0) {
-                    toolbar.classList.add('savg__toolbar--bottom');
+                    toolbar.classList.add('savgy__toolbar--bottom');
 
                 } else {
-                    toolbar.classList.remove('savg__toolbar--bottom');
+                    toolbar.classList.remove('savgy__toolbar--bottom');
                 }
             });
 
             window.addEventListener('DOMContentLoaded', e => {
                 toolbarTop = toolbar.getBoundingClientRect().top;
                 console.log('toolbarTop', toolbar, toolbarTop, toolbar.getBoundingClientRect());
-                if (toolbarTop < 0) toolbar.classList.add('savg__toolbar--bottom');
+                if (toolbarTop < 0) toolbar.classList.add('savgy__toolbar--bottom');
             });
 
 
@@ -2060,7 +2060,7 @@
         }
     }
 
-    function savg_core(
+    function savgy_core(
         input = '',
         {
             addGlobalStyles = true,
@@ -2130,9 +2130,9 @@
 
     // Self-executing function for IIFE
     if (typeof window !== 'undefined') {
-        window.savg = savg_core;
+        window.savgy = savgy_core;
     }
 
-    exports.savg = savg_core;
+    exports.savgy = savgy_core;
 
-})(this.savg = this.savg || {});
+})(this.savgy = this.savgy || {});

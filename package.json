@@ -1,11 +1,11 @@
 {
-  "name": "savg",
+  "name": "savgy",
   "version": "0.1.1",
   "type": "module",
-  "main": "dist/savg.js",
+  "main": "dist/savgy.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/herrstrietzel/savg.git"
+    "url": "git+https://github.com/herrstrietzel/savgy.git"
   },
   "scripts": {
     "build": "rollup -c",
@@ -29,7 +29,7 @@
     "terser": "^5.39.0"
   },
   "bugs": {
-    "url": "https://github.com/herrstrietzel/savg/issues"
+    "url": "https://github.com/herrstrietzel/savgy/issues"
   },
-  "homepage": "https://github.com/herrstrietzel/savg#readme"
+  "homepage": "https://github.com/herrstrietzel/savgy#readme"
 }
