@@ -561,7 +561,6 @@ async function svg2Canvas2DataUrl(
     let dataUrl, blob, bmp, imgTmp;
 
     // Security check for problematic elements
-    //const securityRiskPattern = /<foreignObject|<script|<image|<iframe|<video|<audio|<use\s[^>]*href=/i;
     let hasForeignObjects = /<foreignObject|<script/.test(svgMarkup);
 
     if (hasForeignObjects) {
