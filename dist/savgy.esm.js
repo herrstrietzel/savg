@@ -504,11 +504,17 @@ async function inlineImages(svg, assetCache = {}) {
 
 }
 
-
-
-
-async function svg2Canvas2DataUrl(svg, width = null, height = null, format = 'png', quality = '1', bgColor='transparent', flattenTransparency=false, canvas = null) {
-
+async function svg2Canvas2DataUrl(
+    svg, 
+    width = null, 
+    height = null, 
+    format = 'png', 
+    quality = 1, 
+    bgColor = 'transparent', 
+    flattenTransparency = false, 
+    canvas = null
+) {
+    // Parse SVG and handle dimensions (same as before)
     let isString = typeof svg === 'string';
     let noDimensions = !width || !height;
     let nsAtt = 'xmlns="http://www.w3.org/2000/svg"';
@@ -518,46 +524,21 @@ async function svg2Canvas2DataUrl(svg, width = null, height = null, format = 'pn
         svg = svg.replace('<svg ', `<svg ${nsAtt} `);
     }
 
-    // Detect dimensions if not specified
     if (noDimensions) {
-
-        // parse to retrieve width/height and viewBox
         if (isString) {
             svg = new DOMParser().parseFromString(svg, 'text/html').querySelector('svg');
-
             let viewBox = svg.getAttribute('viewBox') || '0 0 300 150';
             let [, , w, h] = viewBox.split(/,| /);
-
-            [width, height] = +svg.getAttribute("width") && +svg.getAttribute("height") ?
-                [svg.width, svg.height]
+            [width, height] = +svg.getAttribute("width") && +svg.getAttribute("height") 
+                ? [svg.width, svg.height] 
                 : [w, h];
-
-            // force serializing to add missing namespace
             isString = false;
-
         }
-
-        // set explicit svg dimensions for better compatibility
         svg.setAttribute("width", width);
         svg.setAttribute("height", height);
-
     }
 
-
-
-    let svgMarkup = isString ? svg : new XMLSerializer().serializeToString(svg);
-    let dataUrl = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgMarkup);
-
-    let img = new Image();
-    img.crossOrigin = "anonymous";
-    img.src = dataUrl;
-    img.width = width;
-    img.height = height;
-
-    /**
-     * create canvas
-     * if not existent
-     */
+    // Create canvas if not provided
     if (!canvas) {
         canvas = document.createElement("canvas");
     }
@@ -565,24 +546,52 @@ async function svg2Canvas2DataUrl(svg, width = null, height = null, format = 'pn
     canvas.height = height;
     let ctx = canvas.getContext("2d");
 
-    // normalize format identifiers
+    // Normalize format
     format = format.replace(/image\//g, '').replace(/jpg/g, 'jpeg');
 
-    // add white background for jpegs to flatten transparency
+    // Handle background
     if (format === 'jpeg' || flattenTransparency) {
-
-        //console.log('flatten', flattenTransparency);
-        bgColor = bgColor!=='transparent' ? bgColor : '#fff';
+        bgColor = bgColor !== 'transparent' ? bgColor : '#fff';
         ctx.fillStyle = bgColor;
         ctx.fillRect(0, 0, width, height);
     }
 
-    //wait for image to decode
-    await img.decode();
-    await ctx.drawImage(img, 0, 0, width, height);
+    // Get the SVG markup
+    let svgMarkup = isString ? svg : new XMLSerializer().serializeToString(svg);
+    let dataUrl, blob, bmp, imgTmp;
+
+    // Security check for problematic elements
+    //const securityRiskPattern = /<foreignObject|<script|<image|<iframe|<video|<audio|<use\s[^>]*href=/i;
+    let hasForeignObjects = /<foreignObject|<script/.test(svgMarkup);
+
+    if (hasForeignObjects) {
+        //console.log('Security-sensitive SVG detected - falling back to traditional method');
+        dataUrl = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgMarkup);
+        imgTmp = new Image();
+        imgTmp.crossOrigin = "anonymous";
+        imgTmp.src = dataUrl;
+        await imgTmp.decode();
+        ctx.drawImage(imgTmp, 0, 0, width, height);
+    } else {
+        try {
+            blob = new Blob([svgMarkup], { type: 'image/svg+xml' });
+            bmp = await createImageBitmap(svgBlob);
+            ctx.drawImage(bmp, 0, 0, width, height);
+        } catch (error) {
+            console.warn('createImageBitmap failed, falling back:', error);
+            /*
+            // Fallback to traditional method if createImageBitmap fails
+            const dataUrl = 'data:image/svg+xml; charset=utf8, ' + encodeURIComponent(svgMarkup);
+            const img = new Image();
+            img.crossOrigin = "anonymous";
+            img.src = dataUrl;
+            await img.decode();
+            ctx.drawImage(img, 0, 0, width, height);
+            */
+        }
+    }
 
     return canvas.toDataURL(`image/${format}`, quality);
-
 }
 
 /**
